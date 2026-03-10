@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field,EmailStr,ConfigDict
 
-router = APIRouter(prefix="/users", tags=["users"])
+router_seccand = APIRouter(prefix="/users", tags=["users"])
 
 data_wo_age = {
     "email": "okoo.goe@gmail.com",
@@ -25,11 +25,11 @@ class UserAgeSchema(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 users = []
-@router.post("/users")
+@router_seccand.post("/users")
 def add_user(user: UserLive):
     users.append(user)
     return {"ok":True , "massage":"Юздер кошулду "}
 
-@router.get("/users")
+@router_seccand.get("/users")
 def get_users()->list[UserLive]:
     return users
