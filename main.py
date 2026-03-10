@@ -2,8 +2,11 @@ from  fastapi import FastAPI, HTTPException
 import uvicorn
 from pydantic import BaseModel
 from seccand import router as seccand_router
+from three import router_three as third_router_three
+
 app = FastAPI()
 app.include_router(seccand_router)
+app.include_router(third_router_three)
 @app.get("/",summary='Главная страница', tags=['Оснавная страница '])
 def root():
     return {"message": "Привет мир"}
@@ -52,4 +55,4 @@ def create_book(new_book: New_Book):
 
 
 if __name__ == "__main__":
-    uvicorn.run('main1:app',reload=True)
+    uvicorn.run('main:app',reload=True)

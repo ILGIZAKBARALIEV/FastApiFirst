@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field,EmailStr,ConfigDict
-import uvicorn
 
 router = APIRouter(prefix="/users", tags=["users"])
 
