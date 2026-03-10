@@ -1,7 +1,9 @@
 from  fastapi import FastAPI, HTTPException
 import uvicorn
 from pydantic import BaseModel
+from seccand import router as seccand_router
 app = FastAPI()
+app.include_router(seccand_router)
 @app.get("/",summary='Главная страница', tags=['Оснавная страница '])
 def root():
     return {"message": "Привет мир"}
