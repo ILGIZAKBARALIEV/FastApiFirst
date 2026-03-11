@@ -4,13 +4,16 @@ from pydantic import BaseModel
 from seccand import router_seccand as seccand_router
 from three import router_three as third_router_three
 from  four import  router_four as four_router_four
+from five import router_five as five_router_five
 app = FastAPI()
-app.include_router(seccand_router)
-app.include_router(third_router_three)
-app.include_router(four_router_four)
 @app.get("/",summary='Главная страница', tags=['Оснавная страница '])
 def root():
     return {"message": "Привет мир"}
+app.include_router(seccand_router)
+app.include_router(third_router_three)
+
+app.include_router(four_router_four)
+app.include_router(five_router_five)
 books = [
     {
         "id":1,
