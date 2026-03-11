@@ -5,6 +5,7 @@ from seccand import router_seccand as seccand_router
 from three import router_three as third_router_three
 from  four import  router_four as four_router_four
 from five import router_five as five_router_five
+from six_work import  six_work_router as six_work_router
 app = FastAPI()
 @app.get("/",summary='Главная страница', tags=['Оснавная страница '])
 def root():
@@ -14,6 +15,7 @@ app.include_router(third_router_three)
 
 app.include_router(four_router_four)
 app.include_router(five_router_five)
+app.include_router(six_work_router)
 books = [
     {
         "id":1,
